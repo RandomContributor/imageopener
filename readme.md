@@ -1,0 +1,3 @@
+# openimgurl
+
+replaces gay.sh
