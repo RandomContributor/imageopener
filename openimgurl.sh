@@ -11,7 +11,7 @@ debug=1
 while getopts i:m:w:s:dh name; do 
     case $name in 
     i) 
-        input="$OPTARG";; 
+        input="$(<OPTARG)";; 
     m) 
         mode="$OPTARG";; 
     w)
@@ -33,6 +33,7 @@ echo "prepare your anus"
 )
 
 case $mode in
+less-retarded) parallel xdg-open <<<"${input}";;
 xdg-open)     while IFS= read -r  line; do xdg-open "$line";done <"${input}";;
 direct-viewer)while IFS= read -r  line; do $(select_viewer) "$line";done <"${input}";;
 browser)      while IFS= read -r  line; do $(select_browser) "$line";done <"${input}";;

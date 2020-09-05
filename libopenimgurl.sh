@@ -8,7 +8,7 @@
 # if you only want a specific one, use
 # viewers=( "command4daviwve" )
 # i recommend qiv if you would lik to avoid crashes
-viewers=( "qiv" "viewnior"  "gpicview" "eom" )
+viewers=( "qiv" "viewnior"  "gpicview" "eom" "feh" )
 
 # oh boy
 browsers=(
@@ -23,7 +23,7 @@ browsers=(
 )
 
 # requires a little more work to edit, may not be processed in order
-modes=( "xdg-open" "direct-viewer" "browser" "ffplay" "workaround-1" "workaround-2" "wget" )
+modes=( "less-retarded" "xdg-open" "direct-viewer" "browser" "ffplay" "workaround-1" "workaround-2" "wget" )
 
 # checks whether a dependency is present
 function check_dep() {
@@ -56,6 +56,8 @@ function select_browser() {
 function select_mode() {
     for modei in "${modes[@]}";do
         case $modei in
+        less-retarded)
+            check-dep "parallel" "xdg-open" && echo "$modei" && return 0;;
         # prepare your anus
         # if you have xdg-open, you should be good
         xdg-open)
